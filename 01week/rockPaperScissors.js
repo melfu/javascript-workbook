@@ -7,25 +7,34 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const rockPaperScissors=(hand1, hand2) => {
-if (hand1 && hand2 == 'rock' || 'paper' || 'scissors') {
-  if (hand1==hand2) {return "It's a tie!";
-  } else {
-    if (hand1=='rock' && hand2=='paper') {return 'Hand 2 Wins!';
+let isValidAnswer1 = (answer1) => {
+  if (answer1 !== 'rock' || 'paper' || 'scissors') {return true;
+}}
+
+let isValidAnswer2 = (answer2) => {
+ if (answer2 !== 'rock' || 'paper' || 'scissors') {return true;
+}}
+
+const rockPaperScissors=(answer1, answer2) => {
+  if (isValidAnswer1 == true) {return 'Player 1, enter valid move.';
+ } else { 
+  if (isValidAnswer2 == true) {return 'Player 2, enter valid move.';
+} else { 
+   if (answer1==answer2) {return "It's a tie!";
+ } else {
+    if (answer1=='rock' && answer2=='paper') {return 'Hand 2 Wins!';
     } else {
-      if (hand1=='paper' && hand2=='rock') {return 'Hand 1 Wins!';
+      if (answer1=='paper' && answer2=='rock') {return 'Hand 1 Wins!';
     } else {
-      if (hand1=='paper' && hand2=='scissors') {return 'Hand 2 Wins!';
+      if (answer1=='paper' && answer2=='scissors') {return 'Hand 2 Wins!';
     } else {
-      if (hand2=='paper' && hand1=='scissors') {return 'Hand 1 Wins!';
+      if (answer2=='paper' && answer1=='scissors') {return 'Hand 1 Wins!';
     } else {
-      if (hand2=='rock' && hand1=='scissors') {return 'Hand 2 Wins!';
+      if (answer2=='rock' && answer1=='scissors') {return 'Hand 2 Wins!';
     } else {
-      if (hand2=='scissors' && hand1=='rock') {return 'Hand 1 Wins!';
+      if (answer2=='scissors' && answer1=='rock') {return 'Hand 1 Wins!';
     }
-  }
-    }}}}}}
-    else { return 'Enter valid move.'}}
+  }}}}}}}}}
   
 //user enters move as hand1
 //user enters move as hand2
