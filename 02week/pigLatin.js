@@ -9,10 +9,28 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
-
-  // Your code here
-
-}
+  // if string entered, continue 
+  // else, ask for a word
+  // convert each letter of a string into an array with Array.from()
+  // if word starts with a vowell, return word plus 'yay'
+  // if word starts with a consonant, shift index position 1 of array and pop onto end and add 'ay'
+  //
+  // isWord = (word) => {
+  // if word == string { return true; 
+  // } else {
+  // return 'Please enter a valid word.';
+  // }
+  //   
+  // 
+  // 
+  // 
+  // 
+  // 
+  // 
+  // 
+  // 
+  // 
+  // pigLatin = (word) => {}
 
 
 function getPrompt() {
