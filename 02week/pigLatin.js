@@ -7,30 +7,60 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
-function pigLatin(word) {
   // if string entered, continue 
   // else, ask for a word
   // convert each letter of a string into an array with Array.from()
   // if word starts with a vowell, return word plus 'yay'
   // if word starts with a consonant, shift index position 1 of array and pop onto end and add 'ay'
   //
-  // isWord = (word) => {
-  // if word == string { return true; 
-  // } else {
-  // return 'Please enter a valid word.';
-  // }
-  //   
-  // 
-  // 
-  // 
-  // 
-  // 
-  // 
-  // 
-  // 
-  // 
-  // pigLatin = (word) => {}
+
+// const isWord = (answer) => {
+//   if (typeof answer == typeof string) {return true;
+//   } else {
+//     return 'Please enter a valid word.';
+//   } 
+// }
+  
+// const aVowel = 'a' || 'e' || 'i' || 'o' || 'u';
+
+// const convertToArray = (answer) => {
+//   return answer.split('');
+// }
+
+// const startsWithVowel = () => { return convertToArray[0] == aVowel; 
+// }
+
+// const pigLatin = (answer) => {if (isWord(answer)==true) {
+//   if (startsWithVowel()==true) {
+//     return answer + 'yay'}
+// }
+// }
+
+const pigLatin = (answer) => {
+  //const array = answer.split('');
+
+  const vowels = ['a','e','i','o','u'];
+  let newWord = '';
+  for(let i = 0; i < vowels.length-1; i++) {
+
+    for(let y = 0; y < answer.length-1; y++) {
+      if(answer[y] === vowels[i]) {
+        for(let x = y; x < answer.length; x++){
+          newWord = newWord + answer[x];
+        }
+        for(let n = 0; n < y; n++){ 
+          newWord = newWord + answer[n];
+        }
+        return newWord + "ay";
+      } 
+      // } if {
+      //   return answer.split("").map(answer.slice(1) + answer[0] + 'ay').join("");
+      //   }
+    }       
+  } 
+} 
+
+pigLatin("apple");
 
 
 function getPrompt() {
