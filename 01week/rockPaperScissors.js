@@ -8,34 +8,55 @@ const rl = readline.createInterface({
 });
 
 let isValidAnswer1 = (answer1) => {
-  if (answer1 !== 'rock' || 'paper' || 'scissors') {return true;
-}}
+  if (answer1 !== 'rock' || answer1 !== 'paper' || answer1 !== 'scissors') {
+    return false;
+  }
+}
 
 let isValidAnswer2 = (answer2) => {
- if (answer2 !== 'rock' || 'paper' || 'scissors') {return true;
-}}
+  if (answer2 === 'rock' || answer1 === 'paper' || answer1 === 'scissors') {
+    return true;
+  }
+}
 
-const rockPaperScissors=(answer1, answer2) => {
-  if (isValidAnswer1 == true) {return 'Player 1, enter valid move.';
- } else { 
-  if (isValidAnswer2 == true) {return 'Player 2, enter valid move.';
-} else { 
-   if (answer1==answer2) {return "It's a tie!";
- } else {
-    if (answer1=='rock' && answer2=='paper') {return 'Hand 2 Wins!';
+const rockPaperScissors = (answer1, answer2) => {
+  if (isValidAnswer1(answer1) === false) {
+    return 'Player 1, enter valid move.';
+  } else {
+    if (isValidAnswer2(answer2) === false) {
+      return 'Player 2, enter valid move.';
     } else {
-      if (answer1=='paper' && answer2=='rock') {return 'Hand 1 Wins!';
-    } else {
-      if (answer1=='paper' && answer2=='scissors') {return 'Hand 2 Wins!';
-    } else {
-      if (answer2=='paper' && answer1=='scissors') {return 'Hand 1 Wins!';
-    } else {
-      if (answer2=='rock' && answer1=='scissors') {return 'Hand 2 Wins!';
-    } else {
-      if (answer2=='scissors' && answer1=='rock') {return 'Hand 1 Wins!';
+      if (answer1 === answer2) {
+        return "It's a tie!";
+      } else {
+        if (answer1 === 'rock' && answer2 === 'paper') {
+          return 'Hand 2 Wins!';
+        } else {
+          if (answer1 === 'paper' && answer2 === 'rock') {
+            return 'Hand 1 Wins!';
+          } else {
+            if (answer1 === 'paper' && answer2 === 'scissors') {
+              return 'Hand 2 Wins!';
+            } else {
+              if (answer2 === 'paper' && answer1 === 'scissors') {
+                return 'Hand 1 Wins!';
+              } else {
+                if (answer2 === 'rock' && answer1 === 'scissors') {
+                  return 'Hand 2 Wins!';
+                } else {
+                  if (answer2 === 'scissors' && answer1 === 'rock') {
+                    return 'Hand 1 Wins!';
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
-  }}}}}}}}}
-  
+  }
+}
+
 //user enters move as hand1
 //user enters move as hand2
 //if move = rock, paper, or scissros then move is valid otherwise say enter valid move
@@ -50,7 +71,7 @@ const rockPaperScissors=(answer1, answer2) => {
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
+      console.log(rockPaperScissors(answer1, answer2));
       getPrompt();
     });
   });
