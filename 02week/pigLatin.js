@@ -36,6 +36,7 @@ const rl = readline.createInterface({
 // }
 // }
 
+
 const pigLatin = (answer) => {
   //const array = answer.split('');
 
