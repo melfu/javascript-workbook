@@ -10,17 +10,17 @@ if (typeof describe === 'function') {
       assert.equal(detect.rockPaperScissors('scissors', 'scissors'), "It's a tie!");
     });
     it('should detect which hand won', () => {
-      assert.equal(detect.rockPaperScissors('rock', 'paper'), "Hand two Wins!");
-      assert.equal(detect.rockPaperScissors('paper', 'scissors'), "Hand two Wins!");
-      assert.equal(detect.rockPaperScissors('rock', 'scissors'), "Hand one Wins!");
-      assert.equal(detect.rockPaperScissors('scissors', 'paper'), "Hand one Wins!");
-      assert.equal(detect.rockPaperScissors('paper', 'rock'), "Hand one Wins!");
-      assert.equal(detect.rockPaperScissors('scissors', 'rock'), "Hand two Wins!");
+      assert.equal(detect.rockPaperScissors('rock', 'paper'), "Hand 2 Wins!");
+      assert.equal(detect.rockPaperScissors('paper', 'scissors'), "Hand 2 Wins!");
+      assert.equal(detect.rockPaperScissors('rock', 'scissors'), "Hand 1 Wins!");
+      assert.equal(detect.rockPaperScissors('scissors', 'paper'), "Hand 1 Wins!");
+      assert.equal(detect.rockPaperScissors('paper', 'rock'), "Hand 1 Wins!");
+      assert.equal(detect.rockPaperScissors('scissors', 'rock'), "Hand 2 Wins!");
     });
     it('should scrub input to ensure lowercase with "trim"ed whitepace', () => {
-      assert.equal(detect.rockPaperScissors('rOcK', ' paper '), "Hand two Wins!");
-      assert.equal(detect.rockPaperScissors('Paper', 'SCISSORS'), "Hand two Wins!");
-      assert.equal(detect.rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one Wins!");
+      assert.equal(detect.rockPaperScissors('rOcK', ' paper '), "Hand 2 Wins!");
+      assert.equal(detect.rockPaperScissors('Paper', 'SCISSORS'), "Hand 2 Wins!");
+      assert.equal(detect.rockPaperScissors('rock ', 'sCiSsOrs'), "Hand 1 Wins!");
     });
     it('should ask for a valid move', () => {
       assert.equal(detect.rockPaperScissors('dragon', 'rock'), "Enter a valid move.");
