@@ -6,3 +6,4 @@ const printListOfOlympians = (array) => {
   })
 }
 printListOfOlympians(names);
+
