@@ -89,19 +89,16 @@ function ticTacToe(row, column) {
     if(!checkForWin(row, column)) {
       switchPlayer();
       getPrompt() 
-    } else if (checkForWin()) {
+    } if (checkForWin()) {
       console.log( "Player " + playerTurn + " Wins!");
       printBoard;
-    }
-  } else {
-    console.log('Enter valid answer')
-    return getPrompt();
-  };
-  if (!checkForWin()) {
-    getPrompt();
+    
+    } else {
+      console.log('Enter valid answer')
+      return getPrompt();
+    };
   }
 }
-
 //_____________________________________________________________________
 function getPrompt() {
   printBoard();
