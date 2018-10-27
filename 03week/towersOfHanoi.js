@@ -82,6 +82,8 @@ if (typeof describe === 'function') {
     it('should detect a win', () => {
       stacks = { a: [], b: [4, 3, 2, 1], c: [] };
       assert.equal(checkForWin(), true);
+      stacks = { a: [], b: [], c: [4, 3, 2, 1] };
+      assert.equal(checkForWin(), true);
       stacks = { a: [1], b: [4, 3, 2], c: [] };
       assert.equal(checkForWin(), false);
     });
