@@ -19,23 +19,39 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
+//moves piece based on user input
 function movePiece() {
-  // Your code here
+  console.log('removedPiece')
+
+  const removedPiece = stacks.startStack.pop();
+  stacks.push(removedPiece);
+}
+
+// checks for user input of a, b or c
+function isValidInput(startStack, endStack) {
+  if (startStack === 'a' || startStack === 'b' || startStack === 'c') (endStack === 'a' || endStack === 'b' || endStack === 'c') 
+  {
+    console.log('it is valid')
+    return true;
+  } 
+}
+// checks that input follows rules of game : largest piece always on bottom of stack  
+function isLegal(startStack, endStack) {
 
 }
 
-function isLegal() {
-  // Your code here
-
+// checks for a game win
+function checkForWin() { if (stacks === { a: [], b: [4, 3, 2, 1], c: [] } || stacks ===    { a: [], b: [], c: [4, 3, 2, 1] }) {
+  console.log('checkin on that win')
+  return true
+}
 }
 
-function checkForWin() {
-  // Your code here
-
-}
-
+// overall game function called by getPrompt
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
+  isValidInput(startStack, endStack);
+  console.log('valid')
+  movePiece();
 
 }
 
