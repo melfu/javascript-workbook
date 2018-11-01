@@ -26,7 +26,7 @@ const printStacks = () => {
 // const towerTwoIndex = Object.keys(stacks['b']);
 // const towerThreeIndex = Object.keys(stacks['c']);
 
-  // moves piece based on user input  
+// moves piece based on user input  
 const movePiece = (startStack, endStack) => {
   // holds the object key for the array to remove disc from
   const removePieceHere = stacks[startStack];
@@ -36,55 +36,73 @@ const movePiece = (startStack, endStack) => {
   const poppedPiece = removePieceHere.pop();
   // should add last array value that was removed from start stack onto the end stack
   addPieceHere.push(poppedPiece);
-  console.log(removePieceHere);
-  console.log(addPieceHere);
 }
-
-// const addedPiece = stacks[endStack].push(startStackResult);
-// const removedPiece = towerOne.pop(removedPiece)
-// console.log(removedPiece)
-// console.log(towerOne)
-// towerOne.pop()
-// console.log(towerOne)
-// towerThree.push(removedPiece)
-// console.log(towerThree)
-// towerOne.pop()
-// towerThree.push(removedPiece)
-// console.log(towerThree)
-
-//   const startStackPick = stacks['startStack'];
-//   const startStackResult = startStackPick.pop;
-//   const newStack = [];
-//   stacks.forEach=(item, index) => {
-//     newStack.push(startStackResult)
-//   };
-// }
 
 // checks for user input of a, b or c
-const isValidInput = (startStack, endStack) => {
-  if (startStack === 'a' || startStack === 'b' || startStack === 'c') (endStack === 'a' || endStack === 'b' || endStack === 'c') 
-  {
-    return true
-  } 
-}
-// checks that input follows rules of game : largest piece always on bottom of stack  
-const isLegal = (startStack, endStack) => {
+// const isValidInput = (startStack, endStack) => {
+//   if (startStack == 'a' || startStack == 'b' || startStack == 'c' || endStack == 'a' || endStack == 'b' || endStack == 'c' || startStack !== endStack)
+//   {
+//     return true
+//   } 
+// }
 
-}
+// checks that input follows rules of game : largest piece always on bottom of stack  
+const isLegal = (endStack) => { if(startTest < endTest)
+
+//   stacks[endStack].forEach(function(disc) {
+//     if (disc[]>disc[]) {
+//       return true
+//     }
+//   });
+// } 
+//   array1.forEach(function(element) {
+//   console.log(element);
+// });
+// for (let i=0; i<stacks[endStack].length; i++) {
+//   if (i[0] > i[1])
+//     {
+//       return true
+//     }
+//   }
+// }
 
 // checks for a game win
-const checkForWin = () => { if (stacks === { a: [], b: [4, 3, 2, 1], c: [] } || stacks ===    { a: [], b: [], c: [4, 3, 2, 1] }) {
-  console.log('checkin on that win')
-  return true
+const checkForWin = () => { 
+  if (stacks === {
+    a: [],
+    b: [4, 3, 2, 1],
+    c: []
+  } || stacks === {
+      a: [],
+      b: [],
+      c: [4, 3, 2, 1]
+    })
+  {
+    return true;
+  }
 }
+
+// resets towers to game start settings 
+const resetTowers = () => {
+  stacks = {
+    a: [4, 3, 2, 1],
+    b: [],
+    c: []
+  };
 }
 
 // overall game function called by getPrompt
-const towersOfHanoi = (startStack, endStack) => { if (
-  isValidInput(startStack, endStack)) {
+const towersOfHanoi = (startStack, endStack) => {
   movePiece(startStack, endStack);
-}
-}
+  if(checkForWin()) {
+    console.log('hi')
+    resetTowers();
+  }}
+//     if (!checkForWin()) {
+//   } 
+// }
+// }
+  
 //-------------------------------------------------------------------------
 const getPrompt = () => {
   printStacks();
