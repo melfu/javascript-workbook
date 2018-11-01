@@ -31,16 +31,21 @@ const movePiece = (startStack, endStack) => {
   addPieceHere.push(poppedPiece);
 }
 
-// checks for user input of a, b or c
+// checks for user input of a, b, or c
 const isValidInput = (startStack, endStack) => {
-  if (startStack === 'a' || startStack === 'b' || startStack === 'c' || endStack === 'a' || endStack === 'b' || endStack === 'c' || startStack !== endStack)
+  if (startStack === 'a' || startStack === 'b' || startStack === 'c' || endStack === 'a' || endStack === 'b' || endStack === 'c' && startStack !== endStack)
   {
-    console.log('isValidInput')
     return true;
   } 
 }
 
 // checks that input follows rules of game : largest piece always on bottom of stack  
+const isLegal = (endStack, startStack) => {
+  if (endStack > startStack) {
+    return true
+  }
+}
+
 // const isLegal = (endStack) => { if(startTest < endTest)
 
 //   stacks[endStack].forEach(function(disc) {
@@ -86,14 +91,15 @@ const resetTowers = () => {
 }
 
 // overall game function called by getPrompt
-const towersOfHanoi = (startStack, endStack) => {
+const towersOfHanoi = (startStack, endStack) => { if (isLegal()) { 
   if (isValidInput(startStack, endStack)) { 
     movePiece(startStack, endStack);
     if (checkForWin()) {
       console.log('You WON!');
-      resetTowers();
-    }}}
-//     if (!checkForWin()) {
+      resetTowers() } else if (!checkForWin()) {
+      console.log('Move again')
+    }}}}
+//     
 //   } 
 // }
 // }
