@@ -33,15 +33,20 @@ const movePiece = (startStack, endStack) => {
 
 // checks for user input of a, b, or c
 const isValidInput = (startStack, endStack) => {
-  if (startStack === 'a' || startStack === 'b' || startStack === 'c' || endStack === 'a' || endStack === 'b' || endStack === 'c' && startStack !== endStack)
-  {
+  if ((startStack === 'a' || startStack === 'b' || startStack === 'c') && (endStack === 'a' || endStack === 'b' || endStack === 'c') && (startStack !== endStack)) {
     return true;
-  } 
+  }
 }
 
 // checks that input follows rules of game : largest piece always on bottom of stack  
 const isLegal = (endStack, startStack) => {
-  if (endStack > startStack) {
+  // made a variable to represent the array of the users input
+  const endArray = stacks[endStack];
+  const startArray = stacks[startStack];
+  if (endArray.length === 0) {
+    return true
+    // compares last disc of array of users input, and if the active disc is smaller than end disc then return true
+  } else if (startArray[startArray.length - 1] < endArray[endArray.length - 1]) {
     return true
   }
 }
@@ -66,17 +71,8 @@ const isLegal = (endStack, startStack) => {
 // }
 
 // checks for a game win
-const checkForWin = () => { 
-  if (stacks === {
-    a: [],
-    b: [4, 3, 2, 1],
-    c: []
-  } || stacks === {
-      a: [],
-      b: [],
-      c: [4, 3, 2, 1]
-    })
-  {
+const checkForWin = () => {
+  if (stacks.b.length === 4 || stacks.c.length === 4) {
     return true;
   }
 }
@@ -91,19 +87,25 @@ const resetTowers = () => {
 }
 
 // overall game function called by getPrompt
-const towersOfHanoi = (startStack, endStack) => { if (isLegal()) { 
-  if (isValidInput(startStack, endStack)) { 
-    movePiece(startStack, endStack);
-    if (checkForWin()) {
-      console.log('You WON!');
-      resetTowers() } else if (!checkForWin()) {
-      console.log('Move again')
-    }}}}
+const towersOfHanoi = (startStack, endStack) => {
+  if (isValidInput(startStack, endStack)) {
+    if (isLegal(endStack, startStack)) {
+      movePiece(startStack, endStack);
+      if (checkForWin()) {
+        console.log('You WON!');
+        resetTowers()
+      } else {
+        console.log('Move again')
+      }
+    }
+  }
+}
 //     
 //   } 
 // }
 // }
-  
+
+
 //-------------------------------------------------------------------------
 const getPrompt = () => {
   printStacks();
@@ -122,7 +124,11 @@ if (typeof describe === 'function') {
   describe('#towersOfHanoi()', () => {
     it('should be able to move a block', () => {
       towersOfHanoi('a', 'b');
-      assert.deepEqual(stacks, { a: [4, 3, 2], b: [1], c: [] });
+      assert.deepEqual(stacks, {
+        a: [4, 3, 2],
+        b: [1],
+        c: []
+      });
     });
   });
 
@@ -146,11 +152,23 @@ if (typeof describe === 'function') {
   });
   describe('#checkForWin()', () => {
     it('should detect a win', () => {
-      stacks = { a: [], b: [4, 3, 2, 1], c: [] };
+      stacks = {
+        a: [],
+        b: [4, 3, 2, 1],
+        c: []
+      };
       assert.equal(checkForWin(), true);
-      stacks = { a: [], b: [], c: [4, 3, 2, 1] };
+      stacks = {
+        a: [],
+        b: [],
+        c: [4, 3, 2, 1]
+      };
       assert.equal(checkForWin(), true);
-      stacks = { a: [1], b: [4, 3, 2], c: [] };
+      stacks = {
+        a: [1],
+        b: [4, 3, 2],
+        c: []
+      };
       assert.equal(checkForWin(), false);
     });
   });
