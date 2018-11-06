@@ -62,3 +62,32 @@ numbers.forEach(function(number){
   copy.push(number + 2);
 });
 console.log(copy)
+
+//----- WEEK 4 LOOPS PROJECT -----
+carsInReverse.forEach(function(car){
+  console.log(car);
+});
+
+const persons = {
+  firstName: "Jane",
+  lastName: "Doe",
+  birthDate: "Jan 5, 1925",
+  gender: "female"
+}
+
+for (key in persons) {
+  console.log(key);
+  if (key == ['birthDate']) {
+    console.log(persons.birthDate);
+  }
+}
+
+let number = 0;
+while (number < 1000) {
+  console.log(number += 1)
+}
+do {
+  console.log(number += 1)
+} while (
+  number < 1000
+)
