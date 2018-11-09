@@ -9,7 +9,7 @@ const rl = readline.createInterface({
 
 
 function Checker() {
-  // Your code here
+  const checkers = [];
 }
 
 class Board {
