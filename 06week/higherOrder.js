@@ -6,6 +6,7 @@ function forEach(arr, callback) {
   // Your code here
 }
 
+
 function map(arr, callback) {
   // Your code here
 }
