@@ -60,22 +60,6 @@ class Board {
     console.log(string);
   }
 
-  populateGrid() {
-    for (let row = 0; row < 8; row++) {
-      if (row === 3 || row === 4) continue;
-      for (let col = 0; col < 8; col++) {
-        let color = (row < 3 ? 'white' : 'black');
-        if (row % 2 === 0 && col % 2 === 1) {
-          this.grid[row][col] = new Checker(color)
-        } else if (row % 2 === 1 && col % 2 === 0) {
-          this.grid[row][col] = new Checker(color)
-        }
-      }
-    }
-  }
-
-
-
   createCheckers() {
     const whitePosition = [
       [0, 1],
@@ -92,31 +76,6 @@ class Board {
       [2, 7]
     ];
 
-    //for (let i = 0; i < 12; i++) 
-    // whitePosition.forEach(function (whitePosition) {
-    //   let whiteRow = whitePosition[whitePosition][0];
-    //   let whiteColumn = whitePosition[whitePosition][1];
-    //   whiteChecker = new Checker('white');
-    //   // console.log(whiteRow);
-    //   this.checkers.push(whiteChecker);
-    //   // console.log(this.grid[whiteRow][whiteColumn]);
-    //   this.grid[whiteRow][whiteColumn] = whiteChecker;
-    // });
-
-
-    // for (let i = 0; i < 8; i++) {
-    //   this.grid[row] = [];
-    //   // push in 8 columns of nulls
-    //   for (let column = 0; column < 8; column++) {
-    //     this.grid[row].push(whiteChecker);
-    //   }
-    // }
-
-    // for (let index = 0; index < whitePositions.length; index++) {
-    //   this.grid[row][column].push(whiteChecker);
-    //   this.checkers[row][column].push(whiteChecker);
-    // };
-
     const blackPosition = [
       [5, 0],
       [5, 2],
@@ -131,30 +90,27 @@ class Board {
       [7, 4],
       [7, 6]
     ];
-    for (let i = 0; i < 12; i++) {
-      let blackRow = blackPosition[i][0];
-      let blackColumn = blackPosition[i][1];
-      let blackChecker = new Checker('black');
-      // console.log(whiteRow);
-      this.checkers.push(blackChecker);
-      // console.log(this.grid[whiteRow][whiteColumn]);
-      this.grid[blackRow][blackColumn] = blackChecker;
+    //the array is whitePositions/blackPositions
+    //color is passed in when you call the populateGrid method
+    //each array position is looped through and a Checker instance is created for each position and color
+    const populateGrid = (arr, color) => {
+      arr.forEach(item => {
+        const checker = new Checker(color);
+        this.grid[item[0]][item[1]] = checker;
+        this.checkers.push(item)
+      });
     }
-    // for (let index = 0; index < blackPositions.length; index++) {
-    //   this.grid.push(blackChecker);
-    //   this.checkers.push(blackChecker);
-    // }
+    populateGrid(blackPosition, 'black')
+    populateGrid(whitePosition, 'white')
   }
 
-  //this.grid[0][1] = whiteChecker;
-  //this.grid[5][0] = blackChecker;
-
-  selectChecker(start) {
-    return this.grid[start][0][start][1];
+  selectChecker(row, column) {
+    return this.grid[row][column];
   }
 
-  killChecker(start) {
-    return this.grid[start][0][start][1] = null;
+  killChecker(position) {
+    const killedChecker = this.selectChecker(position[0], position[1]);
+    console.log(killedChecker);
   }
 }
 
@@ -180,21 +136,18 @@ class Game {
   start() {
     this.board.createGrid();
     this.board.createCheckers();
-    this.board.populateGrid()
+    //this.board.populateGrid()
   }
 
   moveChecker(start, end) {
-    const startString = start.toString;
-    const endString = end.toString;
-    const toRow = endString[0];
-    const fromRow = startString[0];
-    const toCol = endString[1];
-    const fromCol = startString[1];
-    this.isLegalMove(startString, endString, toRow, fromRow, toCol, fromCol);
-    const checker = this.board.selectChecker([start][0], [start][1]);
-    this.board.grid[end][0][end][1] = checker;
-    killChecker();
-    console.log(this.board.checker.indexOf(checker)); //splice
+    console.log(start, 'start');
+    console.log(end, 'end');
+    this.board.killChecker(start);
+    const startChecker = this.board.selectChecker(start[0], start[1]);
+    console.log(startChecker);
+    this.board.grid[end[0]][end[1]] = startChecker;
+    this.board.grid[start[0]][start[1]] = null;
+
   }
 }
 
