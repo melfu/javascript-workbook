@@ -2,18 +2,36 @@
 
 const assert = require('assert');
 
-const arr = [1,2,3];
+const arr = [1, 2, 3];
 
-function forEach(arr, num) {
+let newArr = [];
 
+const forEach = (arry, callBackFn) => {
+  for (let i = 0; i < arry.length; i++) {
+    callBackFn(arry[i]);
+  };
+}
+const forEached = (num) => {
+  return num + num;
+}
+forEach(arr, forEached);
+console.log(forEach)
+
+const map = (arry, callBackFn) => {
+  for (let i = 0; i < arry.length; i++) {
+    let formattedItem = callBackFn(arry[i]);
+    newArr.push(formattedItem);
+  };
 }
 
-function map(arr, callback) {
-  // Your code here
-}
+const mapped = map(arr, (num) => {
+  return num * num;
+});
 
 function filter(arr, callback) {
-  // Your code here
+  const filtered = (arr, callback) => {
+
+  }
 }
 
 function some(arr, callback) {
