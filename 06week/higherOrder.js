@@ -15,24 +15,31 @@ const forEached = (num) => {
   return num + num;
 }
 forEach(arr, forEached);
-console.log(forEach)
 
-const map = (arry, callBackFn) => {
+const filter = (arry, callBackFn) => {
   for (let i = 0; i < arry.length; i++) {
-    let formattedItem = callBackFn(arry[i]);
-    newArr.push(formattedItem);
+    let filteredItem = filtered(arry[i]);
+    newArr.push(filteredItem);
+    callBackFn();
   };
 }
-
-const mapped = map(arr, (num) => {
-  return num * num;
+const filtered = filter(num => {
+  return num % 2 === 0;
 });
+filter(arr, filtered);
 
-function filter(arr, callback) {
-  const filtered = (arr, callback) => {
+// const map = (arry, callBackFn) => {
+//   for (let i = 0; i < arry.length; i++) {
+//     let formattedItem = map(arry[i]);
+//     newArr.push(formattedItem);
+//   };
+// }
+// const mapped = map(arr, (num) => {
+//   return num * num;
+// });
+// map(arr, mapped)
+// console.log(mapped)
 
-  }
-}
 
 function some(arr, callback) {
   // Your code here
@@ -54,18 +61,18 @@ if (typeof describe === 'function') {
     });
   });
 
-  describe('#map()', () => {
-    const arr = [1, 2, 3];
-    const mapped = map(arr, (num) => {
-      return num * num;
-    });
-    it('should return new array with mapped items', () => {
-      assert.deepEqual(mapped, [1, 4, 9]);
-    });
-    it('should not affect the original array', () => {
-      assert.deepEqual(arr, [1, 2, 3]);
-    })
-  });
+  // describe('#map()', () => {
+  //   const arr = [1, 2, 3];
+  //   const mapped = map(arr, (num) => {
+  //     return num * num;
+  //   });
+  //   it('should return new array with mapped items', () => {
+  //     assert.deepEqual(mapped, [1, 4, 9]);
+  //   });
+  //   it('should not affect the original array', () => {
+  //     assert.deepEqual(arr, [1, 2, 3]);
+  //   })
+  // });
 
   describe('#filter()', () => {
     it('should return an array of items that pass the predicate test', () => {
