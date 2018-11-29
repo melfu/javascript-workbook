@@ -38,7 +38,7 @@ const carsInReverseAlso = totalCars.sort();
 //console.log(removedCars)
 
 // Use the splice method to remove the 2nd and 3rd items in the array carsInReverse and 'Bronco' in their place.
-carsInReverse.splice(1,2, 'Bronco')
+carsInReverse.splice(1, 2, 'Bronco')
 console.log(carsInReverse)
 
 // Use the push method to add the types of cars that you removed using the splice method, to the carsInReverse array.
@@ -58,36 +58,37 @@ console.log(carsInReverse)
 // Create an array called numbers with the following items: 23, 45, 0, 2 Write code that will add 2 to each item in the array numbers.
 const numbers = [23, 45, 0, 2]
 const copy = []
-numbers.forEach(function(number){
-  copy.push(number + 2);
-});
+numbers.forEach = (number) => {
+    copy.push(number + 2);
+};
 console.log(copy)
 
 //----- WEEK 4 LOOPS PROJECT -----
-carsInReverse.forEach(function(car){
-  console.log(car);
-});
+carsInReverse.forEach = (car) => {
+    console.log(car)
+}
 
 const persons = {
-  firstName: "Jane",
-  lastName: "Doe",
-  birthDate: "Jan 5, 1925",
-  gender: "female"
+    firstName: "Jane",
+    lastName: "Doe",
+    birthDate: "Jan 5, 1925",
+    gender: "female"
 }
 
 for (key in persons) {
-  console.log(key);
-  if (key == ['birthDate']) {
-    console.log(persons.birthDate);
-  }
+    console.log(key);
+    if (key == ['birthDate']) {
+        console.log(persons.birthDate);
+    }
 }
 
 let number = 0;
 while (number < 1000) {
-  console.log(number += 1)
-}
+    console.log(number += 1)
+};
+
 do {
-  console.log(number += 1)
+    console.log(number += 1)
 } while (
-  number < 1000
+    number < 1000
 )
