@@ -55,5 +55,35 @@ export class DogPics extends Component {
         )
     }
 }
+// //   componentDidMount() {
+// //     const { isLoading, url, error } = this.state;
+//     // fetch(dogurl)
+//     //   .then(response => response.json())
+//     //   .then(json => console.log(json))
+//     //   .then(data => { let dogPics = data.response.map((pic) => { return (<div key={pic.result}> <img src = {dogPics} alt='random dog' /></div>
+//     //   )}
+//     //   )})
+//     //   .then(result => this.setState({url: result, 
+//     //                                  isFetching: false}))  
+//     //   // const dogPics = () => <img src = {this.state.url} alt='random dog' />;
+
+//     //   .catch(e => console.log(e))
+
+//     //   const fetchDog = () => {
+//     //     this.setState({...this.state, isFetching: true})
+//     //   }
+
+
+// render() {
+
+//     const image = this.props.message;
+//     return (
+// <div>
+//     <button onClick = {getRandomDoggo}>Show me a doggo!</button>
+//
+//         </div>
+//     )
+// }
+// }
 
 export default DogPics
